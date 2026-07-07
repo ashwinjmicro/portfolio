@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ashwin Naik Jarupla | AI/ML & DevOps Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg:        #0b0f14;
+      --surface:   #131920;
+      --border:    #1e2d3d;
+      --accent:    #00d4aa;
+      --accent2:   #3b82f6;
+      --warn:      #f59e0b;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --mono:      'IBM Plex Mono', monospace;
+      --sans:      'IBM Plex Sans', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(11,15,20,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 40px; height: 60px;
+    }
+    .nav-brand {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 100px 40px 60px;
+      max-width: 900px; margin: 0 auto;
+      position: relative;
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow::before { content: '> '; color: var(--muted); }
+    .hero h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .hero h1 span { color: var(--accent); }
+    .hero-title {
+      font-family: var(--mono);
+      font-size: 16px;
+      color: var(--accent2);
+      margin-bottom: 28px;
+    }
+    .hero-bio {
+      font-size: 18px;
+      font-weight: 300;
+      color: #94a3b8;
+      max-width: 620px;
+      margin-bottom: 40px;
+      line-height: 1.8;
+    }
+    .hero-stats {
+      display: flex; gap: 40px; flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+    .stat { border-left: 2px solid var(--accent); padding-left: 16px; }
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero-badges { display: flex; gap: 10px; flex-wrap: wrap; }
+    .badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--muted);
+      background: var(--surface);
+    }
+    .badge.highlight { border-color: var(--accent); color: var(--accent); }
+
+    /* ── SECTION ── */
+    section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      border-top: 1px solid var(--border);
+    }
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    /* ── VALUE PROP ── */
+    .value-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 4px;
+      padding: 32px;
+      margin-bottom: 24px;
+    }
+    .value-card h3 {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .value-card p {
+      color: #94a3b8;
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px;
+    }
+    .skill-group h4 {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent2);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 12px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 8px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 2px;
+      color: #93c5fd;
+    }
+
+    /* ── ARTIFACTS ── */
+    .artifact {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 32px;
+      margin-bottom: 24px;
+      transition: border-color 0.2s;
+    }
+    .artifact:hover { border-color: var(--accent); }
+    .artifact-header {
+      display: flex; align-items: flex-start;
+      justify-content: space-between; gap: 16px;
+      margin-bottom: 20px; flex-wrap: wrap;
+    }
+    .artifact-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .artifact-workshop {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 10px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      color: var(--warn);
+      background: rgba(245,158,11,0.08);
+    }
+    .artifact h3 {
+      font-size: 20px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .artifact-intro {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .artifact-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    @media(max-width:600px){ .artifact-meta { grid-template-columns: 1fr; } }
+    .meta-item {}
+    .meta-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+    }
+    .meta-value { font-size: 14px; color: #94a3b8; line-height: 1.6; }
+    .artifact-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 20px 0;
+    }
+    .vp-block {
+      background: rgba(0,212,170,0.05);
+      border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 3px;
+      padding: 16px 20px;
+    }
+    .vp-block .meta-label { color: var(--accent); }
+    .vp-block .meta-value { color: #a7f3d0; }
+    .tools-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .tool-chip {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      background: rgba(0,212,170,0.08);
+      border: 1px solid rgba(0,212,170,0.2);
+      border-radius: 2px;
+      color: var(--accent);
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-header {
+      display: flex; justify-content: space-between;
+      align-items: flex-start; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 8px;
+    }
+    .exp-role { font-size: 18px; font-weight: 600; }
+    .exp-company { color: var(--accent); font-weight: 400; }
+    .exp-date {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .exp-bullets { list-style: none; margin-top: 12px; }
+    .exp-bullets li {
+      font-size: 14px;
+      color: #94a3b8;
+      padding: 3px 0 3px 18px;
+      position: relative;
+    }
+    .exp-bullets li::before {
+      content: '→';
+      position: absolute; left: 0;
+      color: var(--accent); font-size: 12px;
+    }
+
+    /* ── CERTS ── */
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .cert-icon {
+      width: 36px; height: 36px; border-radius: 4px;
+      background: rgba(59,130,246,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; flex-shrink: 0;
+    }
+    .cert-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+    .cert-issuer { font-size: 12px; color: var(--muted); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 40px;
+      max-width: 900px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer-text {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .footer-links { display: flex; gap: 20px; }
+    .footer-links a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-brand">ashwin.naik // portfolio</span>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#value">Value</a></li>
+    <li><a href="#artifacts">Artifacts</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="about">
+  <p class="hero-eyebrow">AIML-501 Professional Portfolio</p>
+  <h1>Ashwin<br><span>Naik Jarupla</span></h1>
+  <p class="hero-title">DevOps Engineer → AI/ML Integration Leader</p>
+  <p class="hero-bio">
+    5+ years building and scaling cloud infrastructure at Citi Bank and beyond.
+    Now bridging the gap between robust DevOps engineering and the emerging world
+    of AI/ML — bringing production-grade thinking to machine learning pipelines
+    and intelligent systems.
+  </p>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">5+</div>
+      <div class="stat-label">Years in Cloud / DevOps</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">40%</div>
+      <div class="stat-label">Response Time Improvement</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">25%</div>
+      <div class="stat-label">System Throughput Gain</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">Azure Certifications</div>
+    </div>
+  </div>
+  <div class="hero-badges">
+    <span class="badge highlight">AWS Cloud</span>
+    <span class="badge highlight">CI/CD Pipelines</span>
+    <span class="badge highlight">AI/ML Integration</span>
+    <span class="badge">Jenkins</span>
+    <span class="badge">Kubernetes</span>
+    <span class="badge">Terraform</span>
+    <span class="badge">Python</span>
+    <span class="badge">IWU AIML-501</span>
+  </div>
+</div>
+
+<!-- VALUE PROPOSITION -->
+<section id="value">
+  <p class="section-label">// 01 — Who I Am</p>
+  <h2 class="section-title">Personal Value Proposition</h2>
+
+  <div class="value-card">
+    <h3>Statement</h3>
+    <p>
+      As a DevOps engineer with 5+ years of hands-on experience designing and
+      optimizing cloud infrastructure at scale, I bring a rare combination of
+      production-grade engineering discipline and emerging AI/ML knowledge to
+      organizations navigating intelligent system integration. I help technology
+      teams bridge the gap between reliable infrastructure and the demands of
+      deploying, monitoring, and scaling AI/ML workloads — ensuring that machine
+      learning solutions do not just work in notebooks, but perform in production.
+    </p>
+  </div>
+
+  <div class="value-card">
+    <h3>Target Audience</h3>
+    <p>
+      Technology leaders, engineering managers, and organizations in financial
+      services, cloud infrastructure, and enterprise software who need to integrate
+      AI/ML capabilities into existing production systems without compromising
+      reliability, security, or cost efficiency.
+    </p>
+  </div>
+
+  <div class="value-card">
+    <h3>Unique Differentiator</h3>
+    <p>
+      Most AI/ML professionals understand models. Most DevOps engineers understand
+      infrastructure. I am building the ability to hold both — someone who can
+      design a CI/CD pipeline for an ML model, manage its cloud resource footprint,
+      monitor its performance in production, and lead the organizational change
+      required to make AI adoption stick.
+    </p>
+  </div>
+
+  <!-- SKILLS -->
+  <div style="margin-top: 48px;">
+    <p class="section-label">// Technical Stack</p>
+    <h2 class="section-title" style="font-size:24px; margin-bottom:20px;">Skills & Technologies</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Cloud & AWS</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">EC2</span><span class="skill-tag">S3</span>
+          <span class="skill-tag">RDS</span><span class="skill-tag">VPC</span>
+          <span class="skill-tag">Lambda</span><span class="skill-tag">CloudWatch</span>
+          <span class="skill-tag">ECS</span><span class="skill-tag">CloudFormation</span>
+          <span class="skill-tag">Auto Scaling</span><span class="skill-tag">Azure</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>DevOps & CI/CD</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Jenkins</span><span class="skill-tag">Docker</span>
+          <span class="skill-tag">Kubernetes</span><span class="skill-tag">Terraform</span>
+          <span class="skill-tag">Ansible</span><span class="skill-tag">Chef</span>
+          <span class="skill-tag">Puppet</span><span class="skill-tag">Maven</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Languages & Scripting</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span><span class="skill-tag">Bash</span>
+          <span class="skill-tag">Shell</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Monitoring & Observability</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Splunk</span><span class="skill-tag">Datadog</span>
+          <span class="skill-tag">Nagios</span><span class="skill-tag">CloudWatch</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>AI/ML (In Development)</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">ML Fundamentals</span>
+          <span class="skill-tag">Prompt Engineering</span>
+          <span class="skill-tag">LLM Integration</span>
+          <span class="skill-tag">AI Ethics</span>
+          <span class="skill-tag">Chatbot Development</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Version Control & Databases</h4>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span><span class="skill-tag">Bitbucket</span>
+          <span class="skill-tag">SVN</span><span class="skill-tag">Oracle</span>
+          <span class="skill-tag">SQL Server</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIFACTS -->
+<section id="artifacts">
+  <p class="section-label">// 02 — Course Work</p>
+  <h2 class="section-title">Portfolio Artifacts</h2>
+  <p style="color: var(--muted); font-size: 14px; margin-bottom: 40px; font-family: var(--mono);">
+    AIML-501 — Model Development | Indiana Wesleyan University
+  </p>
+
+  <!-- ARTIFACT 1 -->
+  <div class="artifact">
+    <div class="artifact-header">
+      <div>
+        <p class="artifact-num">Artifact 01</p>
+        <h3>Created to Learn — Reflections on Human Reasoning & AI</h3>
+      </div>
+      <span class="artifact-workshop">Workshop 1 | Assignment 1.1</span>
+    </div>
+    <p class="artifact-intro">
+      A personal reflection essay exploring the Christian theological perspective that humans are
+      created in God's image — including our unique capacities to learn, reason, and create —
+      and what that means for what machines can and cannot replicate.
+    </p>
+    <div class="artifact-meta">
+      <div class="meta-item">
+        <p class="meta-label">Objective</p>
+        <p class="meta-value">To critically examine the boundaries between human reasoning and machine intelligence through the lens of biblical integration and personal experience as a technology professional.</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Process</p>
+        <p class="meta-value">Read the assigned resources on AI/ML fundamentals and Generative AI. Drew on personal experience in DevOps and cloud infrastructure to ground the theological reflection in real technical work. Wrote and revised a 250-word reflection integrating biblical references with technical analysis.</p>
+      </div>
+    </div>
+    <hr class="artifact-divider">
+    <div class="meta-item" style="margin-bottom:16px;">
+      <p class="meta-label">Tools & Technologies</p>
+      <div class="tools-list">
+        <span class="tool-chip">Academic Writing</span>
+        <span class="tool-chip">Biblical Integration</span>
+        <span class="tool-chip">Critical Reflection</span>
+      </div>
+    </div>
+    <div class="vp-block">
+      <p class="meta-label">Artifact Value Proposition</p>
+      <p class="meta-value">
+        This artifact demonstrates my ability to think beyond the technical — to engage with the
+        philosophical and ethical questions that underpin AI development. For technology leaders and
+        hiring teams, it signals that I approach AI not just as an infrastructure problem but as a
+        human one. The capacity to reason about what AI can and cannot do is foundational to making
+        sound decisions about how and when to deploy it.
+      </p>
+    </div>
+  </div>
+
+  <!-- ARTIFACT 2 -->
+  <div class="artifact">
+    <div class="artifact-header">
+      <div>
+        <p class="artifact-num">Artifact 02</p>
+        <h3>AI & ML Timelines — The Architecture of Intelligence</h3>
+      </div>
+      <span class="artifact-workshop">Workshop 1 | Discussion 1.3</span>
+    </div>
+    <p class="artifact-intro">
+      An original visual timeline tracing the major milestones in AI and machine learning history
+      from 1950 to the present, with a focus on the convergence of hardware and algorithmic theory
+      that drove each breakthrough era.
+    </p>
+    <div class="artifact-meta">
+      <div class="meta-item">
+        <p class="meta-label">Objective</p>
+        <p class="meta-value">To demonstrate historical understanding of how AI evolved — including two AI Winters, the deep learning explosion, and the Generative AI era — and to contextualize my own entry into the field within that history.</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Process</p>
+        <p class="meta-value">Researched AI history using assigned resources (Our World in Data, IEEE Computer Society, Putchuon 2024 documentary). Identified 13 key milestones from Turing's 1950 paper through 2024 Multimodal AI. Designed and built the visual timeline in Canva, emphasizing a technical/hardware angle distinct from marketing narratives.</p>
+      </div>
+    </div>
+    <hr class="artifact-divider">
+    <div class="meta-item" style="margin-bottom:16px;">
+      <p class="meta-label">Tools & Technologies</p>
+      <div class="tools-list">
+        <span class="tool-chip">Canva</span>
+        <span class="tool-chip">Visual Design</span>
+        <span class="tool-chip">Historical Research</span>
+        <span class="tool-chip">APA 7 Citation</span>
+      </div>
+    </div>
+    <div class="vp-block">
+      <p class="meta-label">Artifact Value Proposition</p>
+      <p class="meta-value">
+        Understanding AI history is not just academic — it reveals why current AI capabilities exist,
+        where their limits come from, and where they are likely to go next. This timeline demonstrates
+        my ability to synthesize complex technical history into a clear visual narrative, a skill
+        directly applicable to communicating AI strategy to non-technical stakeholders and executive
+        teams in enterprise environments.
+      </p>
+    </div>
+  </div>
+
+  <!-- ARTIFACT 3 -->
+  <div class="artifact">
+    <div class="artifact-header">
+      <div>
+        <p class="artifact-num">Artifact 03</p>
+        <h3>AI Lab — Startup Idea Validator Bot (Vera)</h3>
+      </div>
+      <span class="artifact-workshop">Workshop 1 | Assignment 1.4</span>
+    </div>
+    <p class="artifact-intro">
+      A hands-on AI lab documenting LLM prompting experiments, Custom GPT exploration, STORM AI
+      research, and the design and build of an original AI chatbot — "Vera," a Startup Idea
+      Validator — built using Mizou.com.
+    </p>
+    <div class="artifact-meta">
+      <div class="meta-item">
+        <p class="meta-label">Objective</p>
+        <p class="meta-value">To gain direct, practical experience with multiple AI tools — large language models, custom GPTs, research assistants, and chatbot builders — and to apply a Design Thinking framework to build a functional, purpose-built AI assistant from scratch.</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Process</p>
+        <p class="meta-value">Designed a structured prompt (Context + Task + Constraints) and tested it across 3 separate ChatGPT chats to compare output variation. Explored Startup Mentor Custom GPT, pivoting my bot's go-to-market strategy based on GPT feedback. Used STORM AI to research the AI productivity tools market. Applied Design Thinking (Empathy → Define → Ideate → Prototype → Test) before building Vera in Mizou.com. Iterated through 3 versions before finalizing.</p>
+      </div>
+    </div>
+    <hr class="artifact-divider">
+    <div class="meta-item" style="margin-bottom:16px;">
+      <p class="meta-label">Tools & Technologies</p>
+      <div class="tools-list">
+        <span class="tool-chip">ChatGPT-4o</span>
+        <span class="tool-chip">Custom GPTs</span>
+        <span class="tool-chip">STORM AI</span>
+        <span class="tool-chip">Mizou.com</span>
+        <span class="tool-chip">Design Thinking</span>
+        <span class="tool-chip">Prompt Engineering</span>
+      </div>
+    </div>
+    <div class="vp-block">
+      <p class="meta-label">Artifact Value Proposition</p>
+      <p class="meta-value">
+        This artifact is the most directly applied piece in my portfolio: I built a working AI
+        assistant. For organizations evaluating AI integration talent, it demonstrates not just
+        theoretical understanding but the practical ability to define a user problem, select
+        appropriate tools, design a conversation flow, and iterate toward a usable product. The
+        Design Thinking framework I applied here is the same one that drives successful AI product
+        deployment in enterprise environments.
+      </p>
+    </div>
+  </div>
+
+  <!-- ARTIFACT 4 -->
+  <div class="artifact">
+    <div class="artifact-header">
+      <div>
+        <p class="artifact-num">Artifact 04</p>
+        <h3>Change Management & AI/ML Leadership Self-Assessment</h3>
+      </div>
+      <span class="artifact-workshop">Workshop 1 | Discussion 1.5</span>
+    </div>
+    <p class="artifact-intro">
+      A critical self-assessment and reflective discussion post evaluating personal strengths and
+      growth areas across 17 change management competencies and 7 AI/ML leadership dimensions,
+      grounded in the CCL Change Leadership framework and the Change Strategists assessment model.
+    </p>
+    <div class="artifact-meta">
+      <div class="meta-item">
+        <p class="meta-label">Objective</p>
+        <p class="meta-value">To honestly evaluate current leadership capabilities in the context of AI/ML integration and organizational change, identify the gaps most critical to close, and articulate specific revisions that would make both assessment tools more effective.</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Process</p>
+        <p class="meta-value">Read "How to be a Successful Change Leader" (CCL) and "How to Assess Change Management Skills" (Change Strategists). Completed both self-assessments, scoring across all categories. Wrote a structured reflection identifying top 3 strengths and growth areas per assessment, critiquing the tools themselves, and proposing specific revisions grounded in the reading and my professional experience.</p>
+      </div>
+    </div>
+    <hr class="artifact-divider">
+    <div class="meta-item" style="margin-bottom:16px;">
+      <p class="meta-label">Tools & Technologies</p>
+      <div class="tools-list">
+        <span class="tool-chip">Self-Assessment</span>
+        <span class="tool-chip">CCL Framework</span>
+        <span class="tool-chip">Critical Analysis</span>
+        <span class="tool-chip">Reflective Writing</span>
+      </div>
+    </div>
+    <div class="vp-block">
+      <p class="meta-label">Artifact Value Proposition</p>
+      <p class="meta-value">
+        Leaders who cannot accurately assess themselves cannot develop. This artifact demonstrates
+        the self-awareness and analytical discipline required to identify real gaps — not just
+        comfortable ones — and to think critically about the tools used to measure leadership.
+        For organizations hiring AI/ML integration leaders, the ability to self-assess honestly
+        and drive personal development is as important as any technical credential.
+      </p>
+    </div>
+  </div>
+
+  <!-- ARTIFACT 5 -->
+  <div class="artifact">
+    <div class="artifact-header">
+      <div>
+        <p class="artifact-num">Artifact 05</p>
+        <h3>Professional Bio & Value Proposition</h3>
+      </div>
+      <span class="artifact-workshop">Workshop 1 | Portfolio Foundation</span>
+    </div>
+    <p class="artifact-intro">
+      The foundational identity layer of this portfolio — a professional bio, personal value
+      proposition, and skills overview that positions the intersection of DevOps engineering
+      expertise and emerging AI/ML leadership capability.
+    </p>
+    <div class="artifact-meta">
+      <div class="meta-item">
+        <p class="meta-label">Objective</p>
+        <p class="meta-value">To clearly articulate who I am as a professional, what unique value I bring to AI/ML-focused roles and organizations, and how my DevOps background differentiates me from candidates entering AI/ML from purely theoretical or data science backgrounds.</p>
+      </div>
+      <div class="meta-item">
+        <p class="meta-label">Process</p>
+        <p class="meta-value">Applied the Value Proposition framework from course materials: (1) Identified target audience — technology leaders in financial services and enterprise cloud, (2) Listed unique skills and experiences, (3) Translated skills into tangible benefits, (4) Drafted and refined a 3-part value proposition (statement, audience, differentiator). Built and published this portfolio on GitHub Pages.</p>
+      </div>
+    </div>
+    <hr class="artifact-divider">
+    <div class="meta-item" style="margin-bottom:16px;">
+      <p class="meta-label">Tools & Technologies</p>
+      <div class="tools-list">
+        <span class="tool-chip">GitHub Pages</span>
+        <span class="tool-chip">HTML / CSS</span>
+        <span class="tool-chip">Personal Branding</span>
+        <span class="tool-chip">Value Proposition Framework</span>
+      </div>
+    </div>
+    <div class="vp-block">
+      <p class="meta-label">Artifact Value Proposition</p>
+      <p class="meta-value">
+        A portfolio without a clear identity is just a file cabinet. This artifact is the lens
+        through which everything else in this portfolio should be read. It makes explicit what I
+        stand for, who I serve, and what I bring that others do not. For any professional in a
+        fast-moving field like AI/ML, the ability to articulate one's own value clearly and
+        compellingly is itself a leadership skill.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">// 03 — Background</p>
+  <h2 class="section-title">Professional Experience</h2>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <p class="exp-role">DevOps Engineer — <span class="exp-company">Citi Bank</span></p>
+        <p style="font-size:13px; color:var(--muted);">Tampa, Florida</p>
+      </div>
+      <span class="exp-date">Mar 2023 — Present</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Administer AWS resources (EC2, S3, RDS, VPC, CloudWatch) ensuring optimal performance and cost efficiency.</li>
+      <li>Automated system monitoring with Splunk and AWS CloudWatch, improving response time by 40%.</li>
+      <li>Implemented CI/CD pipelines using Jenkins integrated with Git, deployed to AWS environments.</li>
+      <li>Engineered cost and performance optimizations, achieving 25% improvement in system throughput.</li>
+      <li>Migrated VMware VMs to AWS using VMDK import tools, streamlining infrastructure setup.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <p class="exp-role">DevOps / Build-Release Engineer — <span class="exp-company">Halcyon Technologies</span></p>
+        <p style="font-size:13px; color:var(--muted);">Hyderabad, India</p>
+      </div>
+      <span class="exp-date">Apr 2021 — Jan 2022</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Managed AWS infrastructure and orchestrated deployments for EC2, S3, and VPC services.</li>
+      <li>Developed automated deployment scripts and implemented CI/CD processes with Jenkins and Nexus.</li>
+      <li>Optimized AWS cost and performance using CloudWatch for system health monitoring.</li>
+    </ul>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-header">
+      <div>
+        <p class="exp-role">Linux Administrator — <span class="exp-company">Tech Mahindra</span></p>
+        <p style="font-size:13px; color:var(--muted);">Hyderabad, India</p>
+      </div>
+      <span class="exp-date">May 2019 — Mar 2021</span>
+    </div>
+    <ul class="exp-bullets">
+      <li>Administered Linux and Windows servers with regular updates, patches, and security configurations.</li>
+      <li>Launched and maintained AWS EC2 instances, managed VPCs, and monitored with CloudWatch.</li>
+      <li>Implemented Jenkins-based CI/CD pipelines for containerized applications.</li>
+    </ul>
+  </div>
+
+  <!-- EDUCATION -->
+  <div style="margin-top: 48px;">
+    <p class="section-label" style="margin-bottom:20px;">// Education</p>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <p class="exp-role">MS in AI & Machine Learning — <span class="exp-company">Indiana Wesleyan University</span></p>
+        </div>
+        <span class="exp-date">2025 — Present</span>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <p class="exp-role">MS in Engineering Management — <span class="exp-company">Trine University</span></p>
+          <p style="font-size:13px; color:var(--muted);">Detroit, Michigan</p>
+        </div>
+        <span class="exp-date">Jan 2022 — May 2023</span>
+      </div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-header">
+        <div>
+          <p class="exp-role">B.Tech in Mechanical Engineering — <span class="exp-company">CMR College</span></p>
+          <p style="font-size:13px; color:var(--muted);">Hyderabad, India</p>
+        </div>
+        <span class="exp-date">Jun 2015 — May 2019</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CERTIFICATIONS -->
+  <div style="margin-top: 48px;">
+    <p class="section-label" style="margin-bottom:20px;">// Certifications</p>
+    <div class="certs-grid">
+      <div class="cert-card">
+        <div class="cert-icon">☁️</div>
+        <div>
+          <p class="cert-name">AZ-400: DevOps Engineer Expert</p>
+          <p class="cert-issuer">Microsoft Azure</p>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-icon">🛡️</div>
+        <div>
+          <p class="cert-name">AZ-104: Administrator Associate</p>
+          <p class="cert-issuer">Microsoft Azure</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label">// 04 — Get In Touch</p>
+  <h2 class="section-title">Contact</h2>
+  <div class="value-card">
+    <h3>Let's Connect</h3>
+    <p>
+      I am currently pursuing my MS in AI/ML at Indiana Wesleyan University while
+      working as a DevOps Engineer at Citi Bank. Open to conversations about
+      AI/ML integration, cloud infrastructure for ML pipelines, and opportunities
+      at the intersection of DevOps and intelligent systems.
+    </p>
+    <div style="margin-top: 20px; display:flex; gap:20px; flex-wrap:wrap;">
+      <a href="mailto:ashwin020896@gmail.com" style="font-family:var(--mono); font-size:13px; color:var(--accent); text-decoration:none;">
+        📧 ashwin020896@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-text">© 2025 Ashwin Naik Jarupla — AIML-501 Portfolio | Indiana Wesleyan University</p>
+  <div class="footer-links">
+    <a href="#about">Top</a>
+    <a href="#artifacts">Artifacts</a>
+    <a href="mailto:ashwin020896@gmail.com">Email</a>
+  </div>
+</footer>
+
+</body>
+</html>
