@@ -22,16 +22,16 @@
     .nav-links{display:flex;gap:32px;list-style:none;}
     .nav-links a{font-family:var(--mono);font-size:11px;color:var(--muted);text-decoration:none;text-transform:uppercase;letter-spacing:0.1em;transition:color 0.2s;}
     .nav-links a:hover{color:var(--orange);}
-    .hero{min-height:100vh;display:grid;grid-template-columns:1fr;align-items:center;padding:100px 48px 60px;max-width:1100px;margin:0 auto;gap:60px;}
-    @media(max-width:768px){.hero{grid-template-columns:1fr;padding:100px 24px 60px;}}
+    .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 48px 60px;max-width:1100px;margin:0 auto;}
+    @media(max-width:768px){.hero{padding:100px 24px 60px;}}
     .hero-tag{font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
     .hero-tag::before{content:'';display:block;width:24px;height:2px;background:var(--orange);}
     .hero h1{font-family:var(--grotesk);font-size:clamp(40px,5vw,68px);font-weight:700;line-height:1.05;letter-spacing:-0.03em;margin-bottom:12px;}
     .hero h1 .highlight{color:var(--orange);}
     .hero-sub{font-family:var(--grotesk);font-size:18px;font-weight:300;color:var(--muted);margin-bottom:28px;line-height:1.5;}
     .hero-sub strong{color:var(--gold);font-weight:500;}
-    .hero-bio{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:480px;}
-    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;}
+    .hero-bio{font-size:15px;color:var(--muted);line-height:1.85;margin-bottom:36px;max-width:580px;}
+    .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:36px;max-width:400px;}
     .stat{background:var(--bg2);border:1px solid var(--border);border-top:2px solid var(--orange);padding:16px;border-radius:2px;}
     .stat-num{font-family:var(--grotesk);font-size:28px;font-weight:700;color:var(--orange);line-height:1;margin-bottom:4px;}
     .stat-label{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
@@ -40,14 +40,6 @@
     .btn-primary:hover{background:var(--orange2);}
     .btn-secondary{font-family:var(--grotesk);font-size:14px;font-weight:500;padding:12px 28px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:2px;text-decoration:none;transition:border-color 0.2s;}
     .btn-secondary:hover{border-color:var(--orange);color:var(--orange);}
-    
-    
-    
-    
-    
-    
-    
-    
     .section-wrap{max-width:1100px;margin:0 auto;padding:80px 48px;border-top:1px solid var(--border);}
     @media(max-width:768px){.section-wrap{padding:60px 24px;}}
     .section-eyebrow{font-family:var(--mono);font-size:11px;color:var(--orange);text-transform:uppercase;letter-spacing:0.15em;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
@@ -68,7 +60,7 @@
     .tag{font-family:var(--mono);font-size:10px;padding:2px 8px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:2px;color:var(--orange2);}
     .tag.new{background:rgba(255,215,0,0.07);border-color:rgba(255,215,0,0.2);color:var(--gold);}
     .artifact{background:var(--bg2);border:1px solid var(--border);border-radius:2px;overflow:hidden;}
-    .artifact-header{background:var(--bg3);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+    .artifact-header{background:var(--bg3);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;}
     .artifact-num{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;}
     .artifact-title{font-family:var(--grotesk);font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
     .artifact-badge{font-family:var(--mono);font-size:10px;padding:4px 12px;background:rgba(255,107,53,0.12);border:1px solid rgba(255,107,53,0.3);border-radius:2px;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;}
@@ -91,6 +83,10 @@
     .process-step{display:flex;gap:12px;align-items:flex-start;}
     .step-num{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--orange);background:rgba(255,107,53,0.1);border:1px solid rgba(255,107,53,0.2);width:24px;height:24px;border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
     .step-text{font-size:13px;color:var(--muted);line-height:1.6;}
+    .test-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+    @media(max-width:600px){.test-grid{grid-template-columns:1fr;}}
+    .test-item{background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:10px 14px;font-family:var(--mono);font-size:11px;color:var(--muted);}
+    .test-item::before{content:'> ';color:var(--orange);}
     .exp-item{padding:28px 0;border-bottom:1px solid var(--border);}
     .exp-item:last-child{border-bottom:none;}
     .exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
@@ -138,22 +134,19 @@
 </nav>
 
 <div class="hero" id="about">
-  <div class="hero-left">
-    <p class="hero-tag">AIML-501 Professional Portfolio</p>
-    <h1>Ashwin<br>Naik<br><span class="highlight">Jarupla</span></h1>
-    <p class="hero-sub">DevOps Engineer → <strong>AI/ML Builder</strong></p>
-    <p class="hero-bio">5+ years engineering and scaling cloud infrastructure at Citi Bank. Now building at the intersection of DevOps and AI — bringing production-grade discipline to intelligent systems that actually work in the real world.</p>
-    <div class="hero-stats">
-      <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Cloud / DevOps</div></div>
-      <div class="stat"><div class="stat-num">40%</div><div class="stat-label">Response Time Gain</div></div>
-      <div class="stat"><div class="stat-num">25%</div><div class="stat-label">Throughput Improved</div></div>
-      <div class="stat"><div class="stat-num">2</div><div class="stat-label">Azure Certs</div></div>
-    </div>
-    <div class="hero-cta">
-      <a href="#artifacts" class="btn-primary">View Artifacts</a>
-      <a href="#contact" class="btn-secondary">Get In Touch</a>
-    </div>
+  <p class="hero-tag">AIML-501 Professional Portfolio</p>
+  <h1>Ashwin<br>Naik<br><span class="highlight">Jarupla</span></h1>
+  <p class="hero-sub">DevOps Engineer → <strong>AI/ML Builder</strong></p>
+  <p class="hero-bio">5+ years engineering and scaling cloud infrastructure at Citi Bank. Now building at the intersection of DevOps and AI — bringing production-grade discipline to intelligent systems that actually work in the real world.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">5+</div><div class="stat-label">Years Cloud / DevOps</div></div>
+    <div class="stat"><div class="stat-num">40%</div><div class="stat-label">Response Time Gain</div></div>
+    <div class="stat"><div class="stat-num">25%</div><div class="stat-label">Throughput Improved</div></div>
+    <div class="stat"><div class="stat-num">2</div><div class="stat-label">Azure Certs</div></div>
   </div>
+  <div class="hero-cta">
+    <a href="#artifacts" class="btn-primary">View Artifacts</a>
+    <a href="#contact" class="btn-secondary">Get In Touch</a>
   </div>
 </div>
 
@@ -172,10 +165,11 @@
       </div>
       <div class="vp-card gold-accent">
         <h3>Unique Differentiator</h3>
-        <p>Most AI/ML professionals understand models. Most DevOps engineers understand infrastructure. I am building the ability to hold both.</p>
+        <p>Most AI/ML professionals understand models. Most DevOps engineers understand infrastructure. I am building the ability to hold both — bringing production discipline to AI development.</p>
       </div>
     </div>
   </div>
+
   <p class="section-eyebrow" style="margin-top:48px;">Technical Stack</p>
   <div class="skills-grid">
     <div class="skill-group"><h4>Cloud & AWS</h4><div class="tags"><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">RDS</span><span class="tag">VPC</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span><span class="tag">ECS</span><span class="tag">CloudFormation</span><span class="tag">Auto Scaling</span><span class="tag">Azure</span></div></div>
@@ -196,48 +190,108 @@
     <div class="artifact-header">
       <div>
         <p class="artifact-num">Artifact 01 — Workshop 1 — Assignment 1.4</p>
-        <p class="artifact-title">From Prompt to Product — Building Vera, an AI Startup Validator</p>
+        <p class="artifact-title">Digital Safety AI — A Collaborative Cybersecurity Awareness Chatbot</p>
       </div>
       <span class="artifact-badge">AI Lab</span>
     </div>
     <div class="artifact-body">
-      <p class="artifact-intro">A hands-on AI lab documenting the end-to-end process of designing, building, and iterating on a working AI chatbot — "Vera," a Startup Idea Validator — built on Chatbase.co using Design Thinking principles and structured prompt engineering. For an audience of technology leaders, this piece answers one question: can this person actually build something with AI, not just talk about it?</p>
+      <p class="artifact-intro">As part of a collaborative group lab with 8 team members, I explored generative AI tools and applied the Design Thinking framework to co-build Digital Safety AI — a cybersecurity awareness chatbot built as a Custom GPT. This artifact demonstrates practical AI development skills, ethical design thinking, and the ability to translate a real user problem — lack of cybersecurity awareness — into a working AI solution.</p>
+
       <div class="artifact-grid">
         <div>
           <p class="meta-label">Objective</p>
-          <p class="meta-text">To gain direct hands-on experience with the full spectrum of AI tools — large language models, custom GPTs, research assistants, and chatbot builders — and to apply a Design Thinking framework to produce a functional, purpose-built AI product from scratch.</p>
+          <p class="meta-text">To gain hands-on experience with generative AI technologies, understand how prompting quality affects output, and apply the Design Thinking framework collaboratively to build an AI assistant that educates users on cybersecurity basics and safe online behavior.</p>
         </div>
         <div>
           <p class="meta-label">Description</p>
-          <p class="meta-text">Vera is an AI chatbot that stress-tests startup ideas through a structured five-step validation framework. A founder pitches in one sentence. Vera identifies the customer, probes why existing solutions fail, questions the revenue model, surfaces the single biggest risk, and delivers a structured verdict — all without sugarcoating.</p>
+          <p class="meta-text">Digital Safety AI is a cybersecurity awareness chatbot that educates users on common internet threats, phishing identification, password security, safe Wi-Fi usage, and responsible online behavior — all in plain, accessible language. Deliberately scoped to education only with no hacking or illegal access instructions.</p>
         </div>
       </div>
+
       <div style="margin-bottom:24px;">
-        <p class="meta-label">Process</p>
+        <p class="meta-label">Process — Design Thinking Applied</p>
         <div class="process-steps">
-          <div class="process-step"><span class="step-num">1</span><p class="step-text"><strong style="color:var(--text);">LLM Prompting:</strong> Designed a structured prompt (Context + Task + Constraints) and ran it across 3 separate ChatGPT-4o chats. Each surfaced a different critical insight — Microsoft Copilot threat, data cold-start problem. Lesson: always run multiple chats and look for where outputs diverge.</p></div>
-          <div class="process-step"><span class="step-num">2</span><p class="step-text"><strong style="color:var(--text);">Custom GPT:</strong> Used Startup Mentor GPT to pressure-test go-to-market strategy. GPT recommended pivoting from B2C to B2B SaaS and focusing on one vertical — insights that directly shaped Vera's design philosophy.</p></div>
-          <div class="process-step"><span class="step-num">3</span><p class="step-text"><strong style="color:var(--text);">STORM AI:</strong> Researched the AI productivity tools market. Discovered Reclaim.ai and Motion as closer competitors than anticipated. Identified privacy-first local processing as a potential differentiator.</p></div>
-          <div class="process-step"><span class="step-num">4</span><p class="step-text"><strong style="color:var(--text);">Design Thinking:</strong> Empathy — founder with good idea but no honest feedback. Define — people get validation from people too nice to tell the truth. Ideate — stress-tester beats cheerleader. Prototype — Vera on Chatbase.co. Test — three startup ideas at different quality levels.</p></div>
-          <div class="process-step"><span class="step-num">5</span><p class="step-text"><strong style="color:var(--text);">Build & Iterate:</strong> Iteration 1 too harsh. Iteration 2 added framing challenges as solvable problems. Iteration 3 added structured final verdict step — without it conversations ended inconclusively.</p></div>
+          <div class="process-step"><span class="step-num">1</span><p class="step-text"><strong style="color:var(--text);">Empathize:</strong> Identified that most internet users struggle to recognize phishing emails, use weak passwords, and lack awareness of cybersecurity risks — especially when using public Wi-Fi and unsecured networks.</p></div>
+          <div class="process-step"><span class="step-num">2</span><p class="step-text"><strong style="color:var(--text);">Define:</strong> Most internet users lack foundational cybersecurity knowledge and need practical, accessible guidance to protect themselves from common online threats.</p></div>
+          <div class="process-step"><span class="step-num">3</span><p class="step-text"><strong style="color:var(--text);">Ideate:</strong> Evaluated four concepts — online safety adviser, cybersecurity awareness chatbot, password-security helper, and computer safety education aid. Selected Digital Safety AI as it best served the goal of raising broad awareness and encouraging safe online behavior.</p></div>
+          <div class="process-step"><span class="step-num">4</span><p class="step-text"><strong style="color:var(--text);">Prototype:</strong> Built Digital Safety AI as a Custom GPT with tailored instructions covering cybersecurity threats, online safety tips, password best practices, and responsible technology use. Deliberately excluded hacking or illegal access guidance.</p></div>
+          <div class="process-step"><span class="step-num">5</span><p class="step-text"><strong style="color:var(--text);">Test & Iterate:</strong> Ran test scenarios covering phishing identification and password creation. Identified two key issues — technical jargon too complex for beginners, and responses too lengthy. Fixed both by editing prompts for simplicity, brevity, and focus.</p></div>
         </div>
       </div>
+
+      <div style="margin-bottom:24px;">
+        <p class="meta-label">LLM & Tool Exploration</p>
+        <div class="process-steps">
+          <div class="process-step"><span class="step-num">→</span><p class="step-text"><strong style="color:var(--text);">LLM Practice (ChatGPT):</strong> Tested prompt "Explain common signs of phishing emails" across multiple interactions. Responses were consistent on core content but varied in structure — some included real-world examples, others focused on general awareness. Key lesson: richer prompts with more context produce more specific, useful responses.</p></div>
+          <div class="process-step"><span class="step-num">→</span><p class="step-text"><strong style="color:var(--text);">Custom GPT Exploration:</strong> Explored how supplemental instructions and user context transform generic AI responses into domain-specific guidance — for example, adding the scenario of connecting to public Wi-Fi produced much more targeted safety advice.</p></div>
+          <div class="process-step"><span class="step-num">→</span><p class="step-text"><strong style="color:var(--text);">Research Assistant (STORM AI):</strong> Used to explore how AI can structure cybersecurity information into organized, well-headed content — demonstrating that different AI tools serve fundamentally different purposes in a content workflow.</p></div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <p class="meta-label">Test Scenarios Run</p>
+        <div class="test-grid">
+          <div class="test-item">Signs of phishing emails?</div>
+          <div class="test-item">How to create a strong password?</div>
+          <div class="test-item">Top 5 common online scams</div>
+          <div class="test-item">Safe browsing habits everyone should know</div>
+          <div class="test-item">How to protect personal info online?</div>
+          <div class="test-item">Public Wi-Fi safety tips</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <p class="meta-label">Bot Capabilities</p>
+        <div class="tool-tags">
+          <span class="tool-tag">Cybersecurity Threat Awareness</span>
+          <span class="tool-tag">Phishing Detection</span>
+          <span class="tool-tag">Password Security</span>
+          <span class="tool-tag">Safe Browsing Tips</span>
+          <span class="tool-tag">Responsible Tech Use</span>
+          <span class="tool-tag">Online Scam Recognition</span>
+        </div>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <p class="meta-label">Ethical Considerations</p>
+        <p class="meta-text">Digital Safety AI was deliberately designed for education and awareness only. The bot does not provide hacking instructions, illegal system access guidance, or support for unethical online behavior. This ethical boundary was a core design decision — not an afterthought.</p>
+      </div>
+
       <hr class="artifact-rule">
+
       <div style="margin-bottom:20px;">
         <p class="meta-label">Tools & Technologies</p>
-        <div class="tool-tags"><span class="tool-tag">ChatGPT-4o</span><span class="tool-tag">Startup Mentor GPT</span><span class="tool-tag">STORM AI</span><span class="tool-tag">Chatbase.co</span><span class="tool-tag">Design Thinking</span><span class="tool-tag">Prompt Engineering</span></div>
+        <div class="tool-tags">
+          <span class="tool-tag">ChatGPT</span>
+          <span class="tool-tag">Custom GPT</span>
+          <span class="tool-tag">STORM AI</span>
+          <span class="tool-tag">Design Thinking</span>
+          <span class="tool-tag">Prompt Engineering</span>
+          <span class="tool-tag">Group Collaboration</span>
+        </div>
       </div>
+
+      <div style="margin-bottom:16px;">
+        <p class="meta-label">Try Digital Safety AI</p>
+        <a href="https://chatgpt.com/g/g-69ab0ee940b48191884fa763ea523983-digitalsafety-ai" target="_blank" style="font-family:var(--mono);font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;background:rgba(255,107,53,0.08);padding:8px 16px;border-radius:2px;border:1px solid rgba(255,107,53,0.3);display:inline-block;">
+          🛡️ Open Digital Safety AI →
+        </a>
+        <p style="font-size:11px;color:var(--light);margin-top:6px;font-family:var(--mono);">// Login to your free ChatGPT account and open the link in the same browser</p>
+      </div>
+
       <div class="vp-block">
         <p class="meta-label">Value Proposition</p>
-        <p class="meta-text">For technology leaders evaluating AI integration talent, this artifact demonstrates not just theoretical understanding but the practical ability to move from problem definition to working product. The same Design Thinking process applied to Vera is what drives successful AI product deployment in enterprise environments. Anyone can describe what a chatbot does. This artifact shows the decisions, iterations, and reasoning behind actually building one.</p>
+        <p class="meta-text">For technology leaders and DevOps professionals, this artifact demonstrates the ability to move from a real user problem to a working AI product through a structured, collaborative process. As infrastructure teams are increasingly asked to deploy and support AI systems, understanding how those systems are designed — from user empathy through ethical scoping to iterative testing — is directly relevant to building reliable, responsible AI infrastructure. Digital Safety AI shows I can contribute to AI development, not just AI deployment.</p>
       </div>
+
       <div style="margin:16px 0;">
         <p class="meta-label">Unique Value</p>
-        <p class="meta-text">My DevOps background shaped how I approached this differently. I thought about the bot in terms of inputs, outputs, failure states, and iteration cycles — the same mental model used when designing CI/CD pipelines. That production-grade thinking applied to an AI product is what makes this artifact distinctive.</p>
+        <p class="meta-text">My DevOps background shaped how I approached the scoping and testing phases of this project. In infrastructure work, scope creep and undefined boundaries are primary causes of system failure. Applying that same discipline to defining what Digital Safety AI would and would not do — before building — produced a more reliable and trustworthy product. The ethical constraint (education only, no hacking guidance) is the AI equivalent of a firewall rule: explicit, deliberate, and essential.</p>
       </div>
+
       <div class="relevance-block">
         <p class="meta-label">Relevance</p>
-        <p class="meta-text">As organizations race to deploy AI-powered tools, the gap between "we have access to AI" and "we built something useful with AI" is enormous. This artifact sits on the right side of that gap — demonstrating that I can design, build, and iterate on AI products that serve real user needs.</p>
+        <p class="meta-text">Cybersecurity awareness is one of the most high-impact, underfunded areas in enterprise security. Most breaches start with human error — phishing clicks, weak passwords, unsafe Wi-Fi use. An AI tool that educates users at scale, in plain language, on demand, addresses a real and persistent organizational vulnerability. Building Digital Safety AI gave me direct experience in how AI can be deployed to address security problems at a human level — complementing the technical controls I implement as a DevOps engineer.</p>
       </div>
     </div>
   </div>
@@ -248,15 +302,29 @@
   <h2 class="section-title">Professional Experience</h2>
   <div class="exp-item">
     <div class="exp-top"><div><p class="exp-role">DevOps Engineer — <span class="exp-company">Citi Bank</span></p><p class="exp-loc">Tampa, Florida</p></div><span class="exp-date">Mar 2023 — Present</span></div>
-    <ul class="exp-bullets"><li>Administer AWS resources (EC2, S3, RDS, VPC, CloudWatch) ensuring optimal performance and cost efficiency.</li><li>Automated system monitoring with Splunk and CloudWatch, improving response time by 40%.</li><li>Implemented CI/CD pipelines using Jenkins integrated with Git for AWS deployments.</li><li>Engineered cost and performance optimizations achieving 25% improvement in system throughput.</li><li>Migrated VMware VMs to AWS using VMDK import tools, streamlining infrastructure setup.</li></ul>
+    <ul class="exp-bullets">
+      <li>Administer AWS resources (EC2, S3, RDS, VPC, CloudWatch) ensuring optimal performance and cost efficiency.</li>
+      <li>Automated system monitoring with Splunk and CloudWatch, improving response time by 40%.</li>
+      <li>Implemented CI/CD pipelines using Jenkins integrated with Git for AWS deployments.</li>
+      <li>Engineered cost and performance optimizations achieving 25% improvement in system throughput.</li>
+      <li>Migrated VMware VMs to AWS using VMDK import tools, streamlining infrastructure setup.</li>
+    </ul>
   </div>
   <div class="exp-item">
     <div class="exp-top"><div><p class="exp-role">DevOps / Build-Release Engineer — <span class="exp-company">Halcyon Technologies</span></p><p class="exp-loc">Hyderabad, India</p></div><span class="exp-date">Apr 2021 — Jan 2022</span></div>
-    <ul class="exp-bullets"><li>Managed AWS infrastructure and orchestrated deployments for EC2, S3, and VPC services.</li><li>Developed automated deployment scripts and implemented CI/CD with Jenkins and Nexus.</li><li>Optimized AWS cost and performance using CloudWatch for system health monitoring.</li></ul>
+    <ul class="exp-bullets">
+      <li>Managed AWS infrastructure and orchestrated deployments for EC2, S3, and VPC services.</li>
+      <li>Developed automated deployment scripts and implemented CI/CD with Jenkins and Nexus.</li>
+      <li>Optimized AWS cost and performance using CloudWatch for system health monitoring.</li>
+    </ul>
   </div>
   <div class="exp-item">
     <div class="exp-top"><div><p class="exp-role">Linux Administrator — <span class="exp-company">Tech Mahindra</span></p><p class="exp-loc">Hyderabad, India</p></div><span class="exp-date">May 2019 — Mar 2021</span></div>
-    <ul class="exp-bullets"><li>Administered Linux and Windows servers with regular patches and security configurations.</li><li>Launched and maintained AWS EC2 instances, managed VPCs, monitored with CloudWatch.</li><li>Implemented Jenkins-based CI/CD pipelines for containerized applications.</li></ul>
+    <ul class="exp-bullets">
+      <li>Administered Linux and Windows servers with regular patches and security configurations.</li>
+      <li>Launched and maintained AWS EC2 instances, managed VPCs, monitored with CloudWatch.</li>
+      <li>Implemented Jenkins-based CI/CD pipelines for containerized applications.</li>
+    </ul>
   </div>
   <p class="section-eyebrow" style="margin-top:48px;margin-bottom:20px;">Education</p>
   <div class="edu-grid">
@@ -280,6 +348,7 @@
     <div class="contact-links">
       <a href="mailto:ashwin020896@gmail.com" class="contact-link">📧 ashwin020896@gmail.com</a>
       <a href="https://github.com/ashwinjmicro/portfolio" class="contact-link">⚙ GitHub Portfolio</a>
+      <a href="https://chatgpt.com/g/g-69ab0ee940b48191884fa763ea523983-digitalsafety-ai" class="contact-link">🛡️ Digital Safety AI</a>
     </div>
   </div>
 </section>
