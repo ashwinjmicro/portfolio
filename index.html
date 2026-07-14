@@ -59,11 +59,12 @@
     .tags{display:flex;flex-wrap:wrap;gap:5px;}
     .tag{font-family:var(--mono);font-size:10px;padding:2px 8px;background:rgba(255,107,53,0.08);border:1px solid rgba(255,107,53,0.2);border-radius:2px;color:var(--orange2);}
     .tag.new{background:rgba(255,215,0,0.07);border-color:rgba(255,215,0,0.2);color:var(--gold);}
-    .artifact{background:var(--bg2);border:1px solid var(--border);border-radius:2px;overflow:hidden;}
+    .artifact{background:var(--bg2);border:1px solid var(--border);border-radius:2px;overflow:hidden;margin-bottom:32px;}
     .artifact-header{background:var(--bg3);border-bottom:1px solid var(--border);padding:20px 32px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;}
     .artifact-num{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:4px;}
     .artifact-title{font-family:var(--grotesk);font-size:22px;font-weight:700;color:var(--text);letter-spacing:-0.01em;}
     .artifact-badge{font-family:var(--mono);font-size:10px;padding:4px 12px;background:rgba(255,107,53,0.12);border:1px solid rgba(255,107,53,0.3);border-radius:2px;color:var(--orange);letter-spacing:0.06em;text-transform:uppercase;}
+    .artifact-badge.gold{background:rgba(255,215,0,0.1);border-color:rgba(255,215,0,0.3);color:var(--gold);}
     .artifact-body{padding:32px;}
     .artifact-intro{font-size:15px;color:var(--muted);font-style:italic;margin-bottom:28px;line-height:1.7;padding-left:16px;border-left:2px solid var(--orange);}
     .artifact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
@@ -87,6 +88,10 @@
     @media(max-width:600px){.test-grid{grid-template-columns:1fr;}}
     .test-item{background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:10px 14px;font-family:var(--mono);font-size:11px;color:var(--muted);}
     .test-item::before{content:'> ';color:var(--orange);}
+    .scenario-box{background:var(--bg3);border:1px solid var(--border);border-left:3px solid var(--gold);border-radius:2px;padding:20px 24px;margin-top:8px;}
+    .scenario-box p{font-size:13px;color:var(--muted);line-height:1.75;font-style:italic;}
+    .ref-block{background:var(--bg3);border:1px solid var(--border);border-radius:2px;padding:16px 20px;margin-top:16px;}
+    .ref-block p{font-family:var(--mono);font-size:11px;color:var(--light);line-height:1.8;}
     .exp-item{padding:28px 0;border-bottom:1px solid var(--border);}
     .exp-item:last-child{border-bottom:none;}
     .exp-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
@@ -169,7 +174,6 @@
       </div>
     </div>
   </div>
-
   <p class="section-eyebrow" style="margin-top:48px;">Technical Stack</p>
   <div class="skills-grid">
     <div class="skill-group"><h4>Cloud & AWS</h4><div class="tags"><span class="tag">EC2</span><span class="tag">S3</span><span class="tag">RDS</span><span class="tag">VPC</span><span class="tag">Lambda</span><span class="tag">CloudWatch</span><span class="tag">ECS</span><span class="tag">CloudFormation</span><span class="tag">Auto Scaling</span><span class="tag">Azure</span></div></div>
@@ -184,8 +188,9 @@
 <section class="section-wrap" id="artifacts">
   <p class="section-eyebrow">02 — Course Work</p>
   <h2 class="section-title">Portfolio Artifacts</h2>
-  <p style="color:var(--muted);font-size:13px;margin-bottom:36px;font-family:var(--mono);">AIML-501 — Model Development | Indiana Wesleyan University | Workshop 1</p>
+  <p style="color:var(--muted);font-size:13px;margin-bottom:36px;font-family:var(--mono);">AIML-501 — Model Development | Indiana Wesleyan University</p>
 
+  <!-- ARTIFACT 1 -->
   <div class="artifact">
     <div class="artifact-header">
       <div>
@@ -195,8 +200,7 @@
       <span class="artifact-badge">AI Lab</span>
     </div>
     <div class="artifact-body">
-      <p class="artifact-intro">As part of a collaborative group lab with 8 team members, I explored generative AI tools and applied the Design Thinking framework to co-build Digital Safety AI — a cybersecurity awareness chatbot built as a Custom GPT. This artifact demonstrates practical AI development skills, ethical design thinking, and the ability to translate a real user problem — lack of cybersecurity awareness — into a working AI solution.</p>
-
+      <p class="artifact-intro">As part of a collaborative group lab with 8 team members, I explored generative AI tools and applied the Design Thinking framework to co-build Digital Safety AI — a cybersecurity awareness chatbot built as a Custom GPT. This artifact demonstrates practical AI development skills, ethical design thinking, and the ability to translate a real user problem into a working AI solution.</p>
       <div class="artifact-grid">
         <div>
           <p class="meta-label">Objective</p>
@@ -204,30 +208,19 @@
         </div>
         <div>
           <p class="meta-label">Description</p>
-          <p class="meta-text">Digital Safety AI is a cybersecurity awareness chatbot that educates users on common internet threats, phishing identification, password security, safe Wi-Fi usage, and responsible online behavior — all in plain, accessible language. Deliberately scoped to education only with no hacking or illegal access instructions.</p>
+          <p class="meta-text">Digital Safety AI educates users on common internet threats, phishing identification, password security, safe Wi-Fi usage, and responsible online behavior — all in plain, accessible language. Deliberately scoped to education only with no hacking or illegal access instructions.</p>
         </div>
       </div>
-
       <div style="margin-bottom:24px;">
         <p class="meta-label">Process — Design Thinking Applied</p>
         <div class="process-steps">
-          <div class="process-step"><span class="step-num">1</span><p class="step-text"><strong style="color:var(--text);">Empathize:</strong> Identified that most internet users struggle to recognize phishing emails, use weak passwords, and lack awareness of cybersecurity risks — especially when using public Wi-Fi and unsecured networks.</p></div>
-          <div class="process-step"><span class="step-num">2</span><p class="step-text"><strong style="color:var(--text);">Define:</strong> Most internet users lack foundational cybersecurity knowledge and need practical, accessible guidance to protect themselves from common online threats.</p></div>
-          <div class="process-step"><span class="step-num">3</span><p class="step-text"><strong style="color:var(--text);">Ideate:</strong> Evaluated four concepts — online safety adviser, cybersecurity awareness chatbot, password-security helper, and computer safety education aid. Selected Digital Safety AI as it best served the goal of raising broad awareness and encouraging safe online behavior.</p></div>
-          <div class="process-step"><span class="step-num">4</span><p class="step-text"><strong style="color:var(--text);">Prototype:</strong> Built Digital Safety AI as a Custom GPT with tailored instructions covering cybersecurity threats, online safety tips, password best practices, and responsible technology use. Deliberately excluded hacking or illegal access guidance.</p></div>
-          <div class="process-step"><span class="step-num">5</span><p class="step-text"><strong style="color:var(--text);">Test & Iterate:</strong> Ran test scenarios covering phishing identification and password creation. Identified two key issues — technical jargon too complex for beginners, and responses too lengthy. Fixed both by editing prompts for simplicity, brevity, and focus.</p></div>
+          <div class="process-step"><span class="step-num">1</span><p class="step-text"><strong style="color:var(--text);">Empathize:</strong> Most internet users struggle to recognize phishing emails, use weak passwords, and lack cybersecurity awareness especially on public Wi-Fi.</p></div>
+          <div class="process-step"><span class="step-num">2</span><p class="step-text"><strong style="color:var(--text);">Define:</strong> Users need practical, accessible cybersecurity guidance to protect themselves from common online threats.</p></div>
+          <div class="process-step"><span class="step-num">3</span><p class="step-text"><strong style="color:var(--text);">Ideate:</strong> Evaluated four concepts — selected Digital Safety AI as best serving the goal of raising broad awareness and encouraging safe online behavior.</p></div>
+          <div class="process-step"><span class="step-num">4</span><p class="step-text"><strong style="color:var(--text);">Prototype:</strong> Built as a Custom GPT with tailored instructions covering threats, safe tips, password practices, and responsible tech use. Excluded hacking guidance.</p></div>
+          <div class="process-step"><span class="step-num">5</span><p class="step-text"><strong style="color:var(--text);">Test & Iterate:</strong> Fixed technical jargon complexity and response length issues by editing prompts for simplicity, brevity, and focus.</p></div>
         </div>
       </div>
-
-      <div style="margin-bottom:24px;">
-        <p class="meta-label">LLM & Tool Exploration</p>
-        <div class="process-steps">
-          <div class="process-step"><span class="step-num">→</span><p class="step-text"><strong style="color:var(--text);">LLM Practice (ChatGPT):</strong> Tested prompt "Explain common signs of phishing emails" across multiple interactions. Responses were consistent on core content but varied in structure — some included real-world examples, others focused on general awareness. Key lesson: richer prompts with more context produce more specific, useful responses.</p></div>
-          <div class="process-step"><span class="step-num">→</span><p class="step-text"><strong style="color:var(--text);">Custom GPT Exploration:</strong> Explored how supplemental instructions and user context transform generic AI responses into domain-specific guidance — for example, adding the scenario of connecting to public Wi-Fi produced much more targeted safety advice.</p></div>
-          <div class="process-step"><span class="step-num">→</span><p class="step-text"><strong style="color:var(--text);">Research Assistant (STORM AI):</strong> Used to explore how AI can structure cybersecurity information into organized, well-headed content — demonstrating that different AI tools serve fundamentally different purposes in a content workflow.</p></div>
-        </div>
-      </div>
-
       <div style="margin-bottom:24px;">
         <p class="meta-label">Test Scenarios Run</p>
         <div class="test-grid">
@@ -239,59 +232,97 @@
           <div class="test-item">Public Wi-Fi safety tips</div>
         </div>
       </div>
+      <hr class="artifact-rule">
+      <div style="margin-bottom:20px;">
+        <p class="meta-label">Tools & Technologies</p>
+        <div class="tool-tags"><span class="tool-tag">ChatGPT</span><span class="tool-tag">Custom GPT</span><span class="tool-tag">STORM AI</span><span class="tool-tag">Design Thinking</span><span class="tool-tag">Prompt Engineering</span><span class="tool-tag">Group Collaboration</span></div>
+      </div>
+      <div style="margin-bottom:16px;">
+        <p class="meta-label">Try Digital Safety AI</p>
+        <a href="https://chatgpt.com/g/g-69ab0ee940b48191884fa763ea523983-digitalsafety-ai" target="_blank" style="font-family:var(--mono);font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;background:rgba(255,107,53,0.08);padding:8px 16px;border-radius:2px;border:1px solid rgba(255,107,53,0.3);display:inline-block;">🛡️ Open Digital Safety AI →</a>
+        <p style="font-size:11px;color:var(--light);margin-top:6px;font-family:var(--mono);">// Login to your free ChatGPT account and open in the same browser</p>
+      </div>
+      <div class="vp-block">
+        <p class="meta-label">Value Proposition</p>
+        <p class="meta-text">For technology leaders and DevOps professionals, this artifact demonstrates the ability to move from a real user problem to a working AI product through a structured, collaborative process. Digital Safety AI shows I can contribute to AI development, not just AI deployment.</p>
+      </div>
+      <div class="relevance-block">
+        <p class="meta-label">Relevance</p>
+        <p class="meta-text">Most breaches start with human error — phishing clicks, weak passwords, unsafe Wi-Fi use. An AI tool that educates users at scale, on demand, addresses a real and persistent organizational vulnerability that technical controls alone cannot solve.</p>
+      </div>
+    </div>
+  </div>
 
-      <div style="margin-bottom:24px;">
-        <p class="meta-label">Bot Capabilities</p>
-        <div class="tool-tags">
-          <span class="tool-tag">Cybersecurity Threat Awareness</span>
-          <span class="tool-tag">Phishing Detection</span>
-          <span class="tool-tag">Password Security</span>
-          <span class="tool-tag">Safe Browsing Tips</span>
-          <span class="tool-tag">Responsible Tech Use</span>
-          <span class="tool-tag">Online Scam Recognition</span>
+  <!-- ARTIFACT 2 -->
+  <div class="artifact">
+    <div class="artifact-header">
+      <div>
+        <p class="artifact-num">Artifact 02 — Workshop 2 — Discussion 2.4</p>
+        <p class="artifact-title">Adaptive Learning in Change Leadership — A DevOps Perspective</p>
+      </div>
+      <span class="artifact-badge gold">Leadership Discussion</span>
+    </div>
+    <div class="artifact-body">
+      <p class="artifact-intro">A leadership discussion post exploring adaptive learning in the context of organizational change — grounded in a real AWS cloud migration experience and an AI-generated scenario about a fintech multi-cloud deployment. Written for a technical leadership audience that understands what it costs when plans fail to adapt to reality in production environments.</p>
+
+      <div class="artifact-grid">
+        <div>
+          <p class="meta-label">Objective</p>
+          <p class="meta-text">To articulate the principles of adaptive learning in change leadership through a personal professional experience, and to use AI as a tool for generating a hypothetical scenario that illustrates those principles in a technically credible context relevant to DevOps and cloud engineering leadership.</p>
+        </div>
+        <div>
+          <p class="meta-label">Description</p>
+          <p class="meta-text">The discussion presents two complementary perspectives on adaptive learning: a real AWS cloud migration where a 60% cost overrun and CI/CD latency issues were hidden rather than addressed — demonstrating the cost of non-adaptive leadership — and an AI-generated fintech scenario where a leader's adaptive response to a payment processing latency gap saves far more than the delay cost.</p>
         </div>
       </div>
 
       <div style="margin-bottom:24px;">
-        <p class="meta-label">Ethical Considerations</p>
-        <p class="meta-text">Digital Safety AI was deliberately designed for education and awareness only. The bot does not provide hacking instructions, illegal system access guidance, or support for unethical online behavior. This ethical boundary was a core design decision — not an afterthought.</p>
+        <p class="meta-label">Part 1 — Personal Experience: AWS Cloud Migration</p>
+        <p class="meta-text" style="margin-bottom:12px;">During a major on-premises to AWS migration, the plan looked clean on paper. Two months in, cloud costs were running 60% over projection — unaccounted egress fees — and the dev team's CI/CD pipelines were breaking due to latency in the new environment. The non-adaptive response: protect the timeline and report green status to executives while engineering quietly firefights. The adaptive response: treat the overrun and latency as feedback signals, pause, diagnose, recalibrate the architecture, and renegotiate the timeline with transparency.</p>
+        <p class="meta-text">The key lesson: in DevOps, protecting the plan rather than the outcome is always a failure mode. Adaptive leadership means treating production signals as data, not as inconveniences to manage around.</p>
+      </div>
+
+      <div style="margin-bottom:24px;">
+        <p class="meta-label">Part 2 — AI-Generated Scenario (ChatGPT-4o)</p>
+        <p style="font-family:var(--mono);font-size:10px;color:var(--light);margin-bottom:8px;">AI Tool Disclosed: ChatGPT-4o</p>
+        <div class="scenario-box">
+          <p>A fintech startup is migrating its entire payment processing infrastructure to a multi-cloud architecture across AWS and Azure. At day 45 of a 90-day plan, payment processing latency is 3x higher than the legacy system during peak transaction windows — a performance gap that would violate enterprise client SLA commitments. A non-adaptive leader doubles down on the timeline. An adaptive leader treats the latency data as a critical feedback signal, brings in cloud architecture specialists, discovers a database connection pooling incompatibility with the multi-cloud routing setup, and delays go-live by 30 days. The board is disappointed — until they learn that shipping on time would have triggered SLA breach penalties worth 10x the delay cost.</p>
+        </div>
       </div>
 
       <hr class="artifact-rule">
 
       <div style="margin-bottom:20px;">
-        <p class="meta-label">Tools & Technologies</p>
+        <p class="meta-label">Concepts Demonstrated</p>
         <div class="tool-tags">
-          <span class="tool-tag">ChatGPT</span>
-          <span class="tool-tag">Custom GPT</span>
-          <span class="tool-tag">STORM AI</span>
-          <span class="tool-tag">Design Thinking</span>
-          <span class="tool-tag">Prompt Engineering</span>
-          <span class="tool-tag">Group Collaboration</span>
+          <span class="tool-tag">Adaptive Learning</span>
+          <span class="tool-tag">Change Leadership</span>
+          <span class="tool-tag">AI/ML Integration</span>
+          <span class="tool-tag">Cloud Migration</span>
+          <span class="tool-tag">Feedback-Driven Decision Making</span>
+          <span class="tool-tag">Generative AI for Scenario Planning</span>
         </div>
-      </div>
-
-      <div style="margin-bottom:16px;">
-        <p class="meta-label">Try Digital Safety AI</p>
-        <a href="https://chatgpt.com/g/g-69ab0ee940b48191884fa763ea523983-digitalsafety-ai" target="_blank" style="font-family:var(--mono);font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;background:rgba(255,107,53,0.08);padding:8px 16px;border-radius:2px;border:1px solid rgba(255,107,53,0.3);display:inline-block;">
-          🛡️ Open Digital Safety AI →
-        </a>
-        <p style="font-size:11px;color:var(--light);margin-top:6px;font-family:var(--mono);">// Login to your free ChatGPT account and open the link in the same browser</p>
       </div>
 
       <div class="vp-block">
         <p class="meta-label">Value Proposition</p>
-        <p class="meta-text">For technology leaders and DevOps professionals, this artifact demonstrates the ability to move from a real user problem to a working AI product through a structured, collaborative process. As infrastructure teams are increasingly asked to deploy and support AI systems, understanding how those systems are designed — from user empathy through ethical scoping to iterative testing — is directly relevant to building reliable, responsible AI infrastructure. Digital Safety AI shows I can contribute to AI development, not just AI deployment.</p>
+        <p class="meta-text">For technology leaders evaluating AI/ML integration talent, this artifact demonstrates leadership thinking — not just technical skill. The ability to recognize when a plan needs to change, make that call with data rather than ego, and communicate it transparently to stakeholders is what separates engineers who can lead from engineers who can execute. This discussion shows I understand the difference and can articulate it clearly with real professional experience behind it.</p>
       </div>
 
       <div style="margin:16px 0;">
         <p class="meta-label">Unique Value</p>
-        <p class="meta-text">My DevOps background shaped how I approached the scoping and testing phases of this project. In infrastructure work, scope creep and undefined boundaries are primary causes of system failure. Applying that same discipline to defining what Digital Safety AI would and would not do — before building — produced a more reliable and trustworthy product. The ethical constraint (education only, no hacking guidance) is the AI equivalent of a firewall rule: explicit, deliberate, and essential.</p>
+        <p class="meta-text">My DevOps background makes this analysis concrete rather than abstract. I have seen what happens when infrastructure migrations are declared on-time while actually failing — it is not a hypothetical leadership challenge, it is a production incident waiting to happen. The adaptive leadership principles I discuss here are the same ones that separate reliable infrastructure teams from ones that quietly accumulate technical debt and hide it in status reports.</p>
       </div>
 
       <div class="relevance-block">
         <p class="meta-label">Relevance</p>
-        <p class="meta-text">Cybersecurity awareness is one of the most high-impact, underfunded areas in enterprise security. Most breaches start with human error — phishing clicks, weak passwords, unsafe Wi-Fi use. An AI tool that educates users at scale, in plain language, on demand, addresses a real and persistent organizational vulnerability. Building Digital Safety AI gave me direct experience in how AI can be deployed to address security problems at a human level — complementing the technical controls I implement as a DevOps engineer.</p>
+        <p class="meta-text">As AI/ML systems are integrated into production infrastructure, the leadership challenges become more complex — not less. AI models drift, data distributions shift, latency profiles change under load. The adaptive learning principles that apply to human change leadership apply equally to managing AI systems in production. Leaders who can update their approach based on real-time feedback will build more reliable AI infrastructure than those who execute static plans and hope the system self-corrects.</p>
+      </div>
+
+      <div class="ref-block">
+        <p class="meta-label" style="margin-bottom:8px;">References</p>
+        <p>CCL. (n.d.). <em>Successful change leader</em>. Center for Creative Leadership. https://www.ccl.org/articles/leading-effectively-articles/successful-change-leader/</p>
+        <p>Change Strategists. (n.d.). <em>How to assess change management skills</em>. https://changestrategists.com/how-to-assess-change-management-skills/</p>
       </div>
     </div>
   </div>
